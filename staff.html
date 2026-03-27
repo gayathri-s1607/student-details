@@ -1,0 +1,52 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Staff Approval</title>
+
+<style>
+body {
+    background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
+    color: white;
+    text-align: center;
+    font-family: Arial;
+}
+
+.box {
+    border: 2px solid white;
+    box-shadow: 0 0 10px white;
+    padding: 10px;
+    margin: 10px;
+    background: transparent;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Staff Login</h2>
+
+<input class="box" id="id" placeholder="Staff ID"><br>
+<input class="box" id="pass" type="password" placeholder="Password"><br>
+
+<button class="box" onclick="login()">Login</button>
+
+<script>
+function login() {
+    let id = document.getElementById("id").value;
+    let pass = document.getElementById("pass").value;
+
+    if(id === "staff" && pass === "123") {
+        let choice = confirm("Approve Leave?");
+        localStorage.setItem("staffStatus", choice ? "accept" : "deny");
+        window.location.href = "result.html";
+    } else {
+        alert("Invalid Login");
+    }
+}
+</script>
+
+</body>
+</html>
+```
