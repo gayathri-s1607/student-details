@@ -1,0 +1,39 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Result</title>
+
+<style>
+body {
+    background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
+    color: white;
+    text-align: center;
+    font-family: Arial;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Leave Status</h2>
+<p id="result"></p>
+
+<script>
+let parent = localStorage.getItem("parentStatus");
+let staff = localStorage.getItem("staffStatus");
+
+if(parent === "deny" || staff === "deny") {
+    document.getElementById("result").innerText = "Leave Not Accepted ❌";
+}
+else if(parent === "accept" && staff === "accept") {
+    document.getElementById("result").innerText = "Leave Accepted ✅";
+}
+else {
+    document.getElementById("result").innerText = "Pending...";
+}
+</script>
+
+</body>
+</html>
+```
