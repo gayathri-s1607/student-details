@@ -5,10 +5,18 @@
 
 <style>
 body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
-    color: white;
-    text-align: center;
     font-family: Arial;
+    color: white;
+}
+
+.container {
+    text-align: center;
 }
 
 .box {
@@ -18,18 +26,21 @@ body {
     margin: 10px;
     background: transparent;
     color: white;
+    border-radius: 8px;
 }
 </style>
 </head>
 
 <body>
 
-<h2>Staff Login</h2>
+<div class="container">
+    <h2>Staff Login</h2>
 
-<input class="box" id="id" placeholder="Staff ID"><br>
-<input class="box" id="pass" type="password" placeholder="Password"><br>
+    <input class="box" id="id" placeholder="Staff ID"><br>
+    <input class="box" id="pass" type="password" placeholder="Password"><br>
 
-<button class="box" onclick="login()">Login</button>
+    <button class="box" onclick="login()">Login</button>
+</div>
 
 <script>
 function login() {
@@ -48,3 +59,4 @@ function login() {
 
 </body>
 </html>
+
