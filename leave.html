@@ -1,0 +1,49 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leave Application</title>
+
+<style>
+body {
+    background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+.box {
+    border: 2px solid white;
+    box-shadow: 0 0 10px white;
+    padding: 10px;
+    margin: 10px;
+    background: transparent;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Student Leave Form</h2>
+
+<input class="box" id="taken" placeholder="Leaves Taken"><br>
+<input class="box" id="days" placeholder="Days Requested"><br>
+<textarea class="box" id="reason" placeholder="Reason"></textarea><br>
+
+<button class="box" onclick="submitForm()">Submit</button>
+
+<script>
+function submitForm() {
+    localStorage.setItem("taken", document.getElementById("taken").value);
+    localStorage.setItem("days", document.getElementById("days").value);
+    localStorage.setItem("reason", document.getElementById("reason").value);
+
+    alert("Submitted! Waiting for Parent Approval");
+    window.location.href = "parent.html";
+}
+</script>
+
+</body>
+</html>
+```
