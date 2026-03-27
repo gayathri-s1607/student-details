@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .field {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        label {
+            color: white;
+            font-size: 18px;
+            width: 130px;
+        }
+
+        input {
+            padding: 12px;
+            width: 220px;
+            border-radius: 8px;
+            outline: none;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            box-shadow: 0 0 10px white;
+        }
+
+        .login-btn {
+            margin-top: 20px;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            box-shadow: 0 0 10px white;
+        }
+
+        .login-btn:hover {
+            box-shadow: 0 0 20px white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="field">
+            <label>Name:</label>
+            <input type="text" placeholder="Enter your name">
+        </div>
+
+        <div class="field">
+            <label>Roll No:</label>
+            <input type="text" placeholder="Enter roll number">
+        </div>
+
+        <div class="field">
+            <label>Date of Birth:</label>
+            <input type="date">
+        </div>
+
+        <button class="login-btn" onclick="goDashboard()">Login</button>
+
+    </div>
+
+    <script>
+        function goDashboard() {
+            window.location.href = "dashboard.html";
+        }
+    </script>
+
+</body>
+</html>
+
