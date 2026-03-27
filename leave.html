@@ -5,9 +5,17 @@
 
 <style>
 body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
-    color: white;
     font-family: Arial;
+    color: white;
+}
+
+.container {
     text-align: center;
 }
 
@@ -18,25 +26,28 @@ body {
     margin: 10px;
     background: transparent;
     color: white;
+    border-radius: 8px;
 }
 </style>
 </head>
 
 <body>
 
-<h2>Student Leave Form</h2>
+<div class="container">
+    <h2>Leave Application</h2>
 
-<input class="box" id="taken" placeholder="Leaves Taken"><br>
-<input class="box" id="days" placeholder="Days Requested"><br>
-<textarea class="box" id="reason" placeholder="Reason"></textarea><br>
+    <input class="box" id="taken" placeholder="Leaves Taken"><br>
+    <input class="box" id="days" placeholder="Days Requested"><br>
+    <textarea class="box" id="reason" placeholder="Reason"></textarea><br>
 
-<button class="box" onclick="submitForm()">Submit</button>
+    <button class="box" onclick="submitForm()">Submit</button>
+</div>
 
 <script>
 function submitForm() {
-    localStorage.setItem("taken", document.getElementById("taken").value);
-    localStorage.setItem("days", document.getElementById("days").value);
-    localStorage.setItem("reason", document.getElementById("reason").value);
+    localStorage.setItem("taken", taken.value);
+    localStorage.setItem("days", days.value);
+    localStorage.setItem("reason", reason.value);
 
     alert("Submitted! Waiting for Parent Approval");
     window.location.href = "parent.html";
