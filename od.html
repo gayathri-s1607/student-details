@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>OD Application</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
+    font-family: Arial;
+    color: white;
+}
+
+.container { text-align: center; }
+
+.box {
+    border: 2px solid white;
+    box-shadow: 0 0 10px white;
+    padding: 10px;
+    margin: 10px;
+    background: transparent;
+    color: white;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>OD Application</h2>
+
+    <input class="box" id="date" type="date"><br>
+    <input class="box" id="days" placeholder="No of Days"><br>
+    <textarea class="box" id="reason" placeholder="Reason for OD"></textarea><br>
+
+    <button class="box" onclick="submitOD()">Submit</button>
+</div>
+
+<script>
+function submitOD() {
+
+    let odData = {
+        date: document.getElementById("date").value,
+        days: document.getElementById("days").value,
+        reason: document.getElementById("reason").value,
+        status: "Pending"
+    };
+
+    localStorage.setItem("od", JSON.stringify(odData));
+
+    alert("OD Applied Successfully!");
+
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
