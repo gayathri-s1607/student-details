@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fees Dashboard</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
+    font-family: Arial;
+    color: white;
+}
+
+.container {
+    text-align: center;
+}
+
+.box {
+    border: 2px solid white;
+    box-shadow: 0 0 10px white;
+    padding: 15px;
+    margin: 15px;
+    background: transparent;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 220px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Fees Dashboard</h2>
+
+    <button class="box" onclick="viewPending()">Fees Pending</button>
+    <button class="box" onclick="viewReceipts()">Fees Receipts</button>
+</div>
+
+<script>
+function viewPending() {
+    window.location.href = "fees_pending.html";
+}
+
+function viewReceipts() {
+    window.location.href = "fees_receipt.html";
+}
+</script>
+
+</body>
+</html>
