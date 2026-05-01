@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login</title>
+    <title>Login</title>
 
     <style>
         body {
@@ -34,7 +34,7 @@
             width: 130px;
         }
 
-        input {
+        input, select {
             padding: 12px;
             width: 220px;
             border-radius: 8px;
@@ -67,9 +67,18 @@
 
     <div class="login-container">
 
+        <!-- ✅ ADDED: ROLE SELECTION -->
+        <div class="field">
+            <label>Role:</label>
+            <select id="role">
+                <option value="student">Student</option>
+                <option value="staff">Staff</option>
+            </select>
+        </div>
+
         <div class="field">
             <label>Name:</label>
-            <input type="text" placeholder="Enter your name">
+            <input type="text" id="name" placeholder="Enter your name">
         </div>
 
         <div class="field">
@@ -82,16 +91,28 @@
             <input type="date">
         </div>
 
-        <button class="login-btn" onclick="goDashboard()">Login</button>
+        <!-- ✅ UPDATED BUTTON FUNCTION -->
+        <button class="login-btn" onclick="login()">Login</button>
 
     </div>
 
     <script>
-        function goDashboard() {
-            window.location.href = "dashboard.html";
+        // ✅ UPDATED FUNCTION
+        function login() {
+            let role = document.getElementById("role").value;
+            let name = document.getElementById("name").value;
+
+            // store role & name
+            localStorage.setItem("role", role);
+            localStorage.setItem("name", name);
+
+            if (role === "student") {
+                window.location.href = "dashboard.html"; // student page
+            } else {
+                window.location.href = "staff.html"; // staff page
+            }
         }
     </script>
 
 </body>
 </html>
-
