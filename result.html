@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Result</title>
+<title>Leave Status</title>
 
 <style>
 body {
@@ -29,17 +29,16 @@ body {
 </div>
 
 <script>
-let parent = localStorage.getItem("parentStatus");
-let staff = localStorage.getItem("staffStatus");
+let data = JSON.parse(localStorage.getItem("leave"));
 
-if(parent === "deny" || staff === "deny") {
-    result.innerText = "Leave Not Accepted ❌";
+if (!data) {
+    document.getElementById("result").innerText = "No leave applied";
 }
-else if(parent === "accept" && staff === "accept") {
-    result.innerText = "Leave Accepted ✅";
+else if (data.status === "Approved") {
+    document.getElementById("result").innerText = "Leave Accepted ✅";
 }
 else {
-    result.innerText = "Pending...";
+    document.getElementById("result").innerText = "Pending...";
 }
 </script>
 
