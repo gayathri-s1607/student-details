@@ -45,15 +45,23 @@ body {
 
 <script>
 function submitForm() {
-    localStorage.setItem("taken", taken.value);
-    localStorage.setItem("days", days.value);
-    localStorage.setItem("reason", reason.value);
 
-    alert("Submitted! Waiting for Parent Approval");
-    window.location.href = "parent.html";
+    // ✅ STORE EVERYTHING IN ONE OBJECT
+    let leaveData = {
+        taken: document.getElementById("taken").value,
+        days: document.getElementById("days").value,
+        reason: document.getElementById("reason").value,
+        status: "Pending"
+    };
+
+    localStorage.setItem("leave", JSON.stringify(leaveData));
+
+    alert("Leave Applied Successfully!");
+
+    // ✅ REMOVE PARENT FLOW → GO BACK TO LOGIN
+    window.location.href = "login.html";
 }
 </script>
 
 </body>
 </html>
-
