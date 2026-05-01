@@ -84,7 +84,7 @@ function loadLeave() {
 
     if (data) {
         document.getElementById("details").innerHTML =
-            "Days: " + data.days + "<br>Reason: " + data.reason;
+            "Days: " + data.days + "<br>Reason: " + data.reason + "<br>Status: " + data.status;
     } else {
         document.getElementById("details").innerHTML = "No leave request found";
     }
@@ -96,12 +96,19 @@ function approveLeave() {
     data.status = "Approved";
     localStorage.setItem("leave", JSON.stringify(data));
     alert("Leave Approved");
+    loadLeave(); // refresh display
 }
 
-// WHATSAPP
+// ✅ FIXED WHATSAPP FUNCTION
 function sendWhatsApp() {
-    let phone = "91XXXXXXXXXX"; // change to parent number
+    let phone = "918667590484"; // 👉 REPLACE WITH REAL NUMBER (NO +, NO SPACES)
+
     let data = JSON.parse(localStorage.getItem("leave"));
+
+    if (!data) {
+        alert("No leave data found");
+        return;
+    }
 
     let message = `Your child applied leave:
 Days: ${data.days}
@@ -109,6 +116,7 @@ Reason: ${data.reason}
 Status: ${data.status}`;
 
     let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
     window.open(url, "_blank");
 }
 </script>
