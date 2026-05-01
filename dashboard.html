@@ -12,8 +12,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
-            /* Vibrant glowing background */
             background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
             font-family: Arial, sans-serif;
         }
@@ -21,6 +19,8 @@
         .container {
             display: flex;
             gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .box {
@@ -30,13 +30,9 @@
             color: white;
             font-size: 18px;
             cursor: pointer;
-
             background: transparent;
-
-            /* Glowing white border */
             border: 2px solid white;
             box-shadow: 0 0 15px white, 0 0 30px white;
-
             transition: 0.3s;
         }
 
@@ -50,14 +46,23 @@
 <body>
 
     <div class="container">
-        <div class="box" onclick="goFees()">Fees Details</div>
-        <div class="box" onclick="goLeave()">Leave Application</div>
-        <div class="box" onclick="goOD()">OD Application</div>
+        <div class="box" onclick="goFees()">💰 Fees Details</div>
+        <div class="box" onclick="goLeave()">📄 Leave Application</div>
+        <div class="box" onclick="goOD()">📘 OD Application</div>
+        <div class="box" onclick="checkOD()">📊 Check OD Status</div>
     </div>
 
     <script>
+        // 🔒 ROLE PROTECTION
+        let role = localStorage.getItem("role");
+
+        if (role !== "student") {
+            alert("Access Denied");
+            window.location.href = "user_login.html";
+        }
+
         function goFees() {
-            window.location.href = "fees.html";
+            window.location.href = "fees.html"; // 👉 this opens fees dashboard
         }
 
         function goLeave() {
@@ -67,8 +72,11 @@
         function goOD() {
             window.location.href = "od.html";
         }
+
+        function checkOD() {
+            window.location.href = "od_status.html";
+        }
     </script>
 
 </body>
 </html>
-
