@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fees Pending</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f2027, #2c5364, #00c6ff);
+    font-family: Arial;
+    color: white;
+}
+
+.container {
+    text-align: center;
+}
+
+.box {
+    border: 2px solid white;
+    box-shadow: 0 0 10px white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Pending Fees</h2>
+
+    <div class="box" id="pending"></div>
+</div>
+
+<script>
+// demo data (you can change)
+let pendingAmount = localStorage.getItem("feesPending") || "₹25,000";
+
+document.getElementById("pending").innerText =
+    "Total Pending Fees: " + pendingAmount;
+</script>
+
+</body>
+</html>
